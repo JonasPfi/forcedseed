@@ -1,13 +1,13 @@
 modLoader="javafml"
 loaderVersion="[47,)"
-license="MIT"
+license="ARR"
 logoFile="forcedseed_logo.png"
 
 [[mods]]
 modId="forcedseed"
 version="1.0.0"
 displayName="Forced Seed"
-description="Automatically forces a fixed seed for all new worlds"
+description="Automatically forces a fixed seed for all new worlds."
 authors="JonasPfi"
 
 [[dependencies.forcedseed]]
