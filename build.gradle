@@ -7,7 +7,7 @@ plugins {
 }
 
 group = 'org.crash2.forcedseed'
-version = '1.0.0'
+version = '1.0.1'
 archivesBaseName = 'forcedseed'
 
 java {

@@ -5,7 +5,7 @@ logoFile="forcedseed_logo.png"
 
 [[mods]]
 modId="forcedseed"
-version="1.0.0"
+version="1.0.1"
 displayName="Forced Seed"
 description="Automatically forces a fixed seed for all new worlds."
 authors="JonasPfi"
