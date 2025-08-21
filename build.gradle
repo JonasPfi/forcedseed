@@ -1,0 +1,75 @@
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'maven-publish'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'org.spongepowered.mixin' version '0.7.+'
+}
+
+group = 'org.crash2.forcedseed'
+version = '1.0.0'
+archivesBaseName = 'fixedseed'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+minecraft {
+    mappings channel: 'official', version: '1.20.1'
+
+    runs {
+        client {
+            workingDirectory project.file('run')
+            args '--username', 'Dev'
+
+            // Add these JVM arguments for mixin debugging
+            jvmArgs '-Dmixin.debug=true', '-Dmixin.debug.verbose=true'
+
+            mods {
+                fixedseed {
+                    source sourceSets.main
+                }
+            }
+        }
+    }
+}
+
+// This is crucial - configure mixin
+mixin {
+    add sourceSets.main, "fixedseed.refmap.json"
+    config "fixedseed.mixins.json"
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:1.20.1-47.1.3"
+
+    // Ensure mixin is available at runtime
+    implementation "org.spongepowered:mixin:0.8.5"
+    annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
+}
+
+jar {
+    manifest {
+        attributes([
+                'Specification-Title': 'fixedseed',
+                'Specification-Vendor': 'crash2',
+                'Specification-Version': '1',
+                'Implementation-Title': 'fixedseed',
+                'Implementation-Version': version,
+                'Implementation-Vendor': 'crash2',
+                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                'MixinConfigs': 'fixedseed.mixins.json'
+        ])
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+configurations {
+    shade
+    implementation.extendsFrom shade
+}
