@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fixedseed.main.iml" filepath="$PROJECT_DIR$/.idea/modules/fixedseed.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fixedseed.test.iml" filepath="$PROJECT_DIR$/.idea/modules/fixedseed.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/forcedseed.main.iml" filepath="$PROJECT_DIR$/.idea/modules/forcedseed.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/forcedseed.test.iml" filepath="$PROJECT_DIR$/.idea/modules/forcedseed.test.iml" />
     </modules>
   </component>
 </project>

@@ -3,7 +3,7 @@ loaderVersion="[47,)"
 license="MIT"
 
 [[mods]]
-modId="fixedseed"
+modId="forcedseed"
 version="1.0.0"
 displayName="Fixed Seed"
 description="Forces world seed"

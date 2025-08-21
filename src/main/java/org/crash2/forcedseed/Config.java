@@ -8,7 +8,7 @@ public class Config {
     public static final ForgeConfigSpec.ConfigValue<String> SEED_STRING;
 
     static {
-        BUILDER.push("fixedseed");
+        BUILDER.push("forcedseed");
 
         SEED_STRING = BUILDER
                 .comment("The seed that should always be applied. Leave empty to disable.")

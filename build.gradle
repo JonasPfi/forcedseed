@@ -8,7 +8,7 @@ plugins {
 
 group = 'org.crash2.forcedseed'
 version = '1.0.0'
-archivesBaseName = 'fixedseed'
+archivesBaseName = 'forcedseed'
 
 java {
     toolchain {
@@ -28,7 +28,7 @@ minecraft {
             jvmArgs '-Dmixin.debug=true', '-Dmixin.debug.verbose=true'
 
             mods {
-                fixedseed {
+                forcedseed {
                     source sourceSets.main
                 }
             }
@@ -36,10 +36,10 @@ minecraft {
     }
 }
 
-// This is crucial - configure mixin
+// Configure mixin
 mixin {
-    add sourceSets.main, "fixedseed.refmap.json"
-    config "fixedseed.mixins.json"
+    add sourceSets.main, "forcedseed.refmap.json"
+    config "forcedseed.mixins.json"
 }
 
 dependencies {
@@ -53,14 +53,14 @@ dependencies {
 jar {
     manifest {
         attributes([
-                'Specification-Title': 'fixedseed',
-                'Specification-Vendor': 'crash2',
+                'Specification-Title': 'forcedseed',
+                'Specification-Vendor': 'JonasPfi',
                 'Specification-Version': '1',
-                'Implementation-Title': 'fixedseed',
+                'Implementation-Title': 'forcedseed',
                 'Implementation-Version': version,
-                'Implementation-Vendor': 'crash2',
+                'Implementation-Vendor': 'JonasPfi',
                 'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-                'MixinConfigs': 'fixedseed.mixins.json'
+                'MixinConfigs': 'forcedseed.mixins.json'
         ])
     }
 }
