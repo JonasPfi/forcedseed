@@ -3,7 +3,7 @@
   "minVersion": "0.8",
   "package": "org.crash2.forcedseed.mixin",
   "compatibilityLevel": "JAVA_17",
-  "client": [
+  "mixins": [
     "WorldOptionsMixin"
   ],
   "refmap": "forcedseed.refmap.json"
