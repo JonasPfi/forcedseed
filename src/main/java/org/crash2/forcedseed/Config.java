@@ -11,7 +11,7 @@ public class Config {
         BUILDER.push("forcedseed");
 
         SEED_STRING = BUILDER
-                .comment("The seed that should always be applied. Leave empty to disable.")
+                .comment("The seed that should always be applied.")
                 .define("seedString", "123456789");
 
         BUILDER.pop();
