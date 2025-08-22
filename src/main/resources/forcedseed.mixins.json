@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "org.crash2.forcedseed.mixin",
+  "package": "io.github.jonaspfi.forcedseed.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "WorldOptionsMixin"

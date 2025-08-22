@@ -1,7 +1,0 @@
-
-[fixedseed]
-	#The seed that should always be applied (string or number). Leave empty to disable.
-	seedString = "1234567890"
-	#If true, the seed text field in Create World screen cannot be edited.
-	lockSeed = true
-

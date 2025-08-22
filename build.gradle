@@ -6,9 +6,9 @@ plugins {
     id 'org.spongepowered.mixin' version '0.7.+'
 }
 
-group = 'org.crash2.forcedseed'
-version = '1.0.1'
-archivesBaseName = 'forcedseed'
+group = project.group
+version = project.mod_version
+archivesBaseName = project.mod_id
 
 java {
     toolchain {
@@ -17,18 +17,20 @@ java {
 }
 
 minecraft {
-    mappings channel: 'official', version: '1.20.1'
+    mappings channel: 'official', version: project.mc_version
 
     runs {
         client {
             workingDirectory project.file('run')
             args '--username', 'Dev'
 
-            // Add these JVM arguments for mixin debugging
-            jvmArgs '-Dmixin.debug=true', '-Dmixin.debug.verbose=true'
+            // Add these JVM arguments for mixin debugging (from gradle.properties)
+            if (project.hasProperty('mixin.debug') && project.property('mixin.debug').toBoolean()) {
+                jvmArgs '-Dmixin.debug=true', '-Dmixin.debug.verbose=true'
+            }
 
             mods {
-                forcedseed {
+                "${project.mod_id}" {
                     source sourceSets.main
                 }
             }
@@ -36,16 +38,14 @@ minecraft {
     }
 }
 
-// Configure mixin
 mixin {
-    add sourceSets.main, "forcedseed.refmap.json"
-    config "forcedseed.mixins.json"
+    add sourceSets.main, "${project.mod_id}.refmap.json"
+    config "${project.mod_id}.mixins.json"
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:1.20.1-47.1.3"
+    minecraft "net.minecraftforge:forge:${project.mc_version}-${project.forge_version}"
 
-    // Ensure mixin is available at runtime
     implementation "org.spongepowered:mixin:0.8.5"
     annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 }
@@ -53,14 +53,14 @@ dependencies {
 jar {
     manifest {
         attributes([
-                'Specification-Title': 'forcedseed',
+                'Specification-Title': project.mod_id,
                 'Specification-Vendor': 'JonasPfi',
                 'Specification-Version': '1',
-                'Implementation-Title': 'forcedseed',
-                'Implementation-Version': version,
+                'Implementation-Title': project.mod_id,
+                'Implementation-Version': project.mod_version,
                 'Implementation-Vendor': 'JonasPfi',
                 'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-                'MixinConfigs': 'forcedseed.mixins.json'
+                'MixinConfigs': "${project.mod_id}.mixins.json"
         ])
     }
 }
