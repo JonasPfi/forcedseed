@@ -24,7 +24,6 @@ minecraft {
             workingDirectory project.file('run')
             args '--username', 'Dev'
 
-            // Add these JVM arguments for mixin debugging (from gradle.properties)
             if (project.hasProperty('mixin.debug') && project.property('mixin.debug').toBoolean()) {
                 jvmArgs '-Dmixin.debug=true', '-Dmixin.debug.verbose=true'
             }
